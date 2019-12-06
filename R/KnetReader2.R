@@ -26,7 +26,7 @@ KnetReader2 <- function (fname) {
     SF_vec_dats <- SF*vec_dats[1:dlen]  # multiply scale factor
     acc <- SF_vec_dats - mean(SF_vec_dats)  # to be zero-mean
 
-    ## list of properties
+    # list of properties
     properties <- list(
 
         OriginTime      =            as.character(prps[ 1, 2]),
