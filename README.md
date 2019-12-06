@@ -7,5 +7,6 @@ Manipulating [NIED K-NET/KiK-net](http://www.kyoshin.bosai.go.jp/kyoshin/) ASCII
 To install, run the following code in R console:
 
 ```
+# install.packages("devtools")
 remotes::install_github("taroyaoyama/KnetReader2")
 ```
