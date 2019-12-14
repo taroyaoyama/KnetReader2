@@ -126,7 +126,7 @@ ASCIItocsv2 <- function (flist, exdir, unified = TRUE) {
 
     # properties
     properties <- KnetDataListing(flist)
-    write_csv(properties, paste0(exdir, '/_properties.csv'), row.names = FALSE)
+    write_csv(properties, paste0(exdir, '/_properties.csv'))
 
     if (unified) {
 
@@ -155,18 +155,19 @@ ASCIItocsv2 <- function (flist, exdir, unified = TRUE) {
 
                 if (length(grep('\\.NS$', cmps))) {
 
-                    out[,2] <- KnetReader2(cmps[grep('\\.NS$', cmps)])$data
+                    out[,2] <- KnetReader22(cmps[grep('\\.NS$', cmps)])$data
                 }
                 if (length(grep('\\.EW$', cmps))) {
 
-                    out[,3] <- KnetReader2(cmps[grep('\\.EW$', cmps)])$data
+                    out[,3] <- KnetReader22(cmps[grep('\\.EW$', cmps)])$data
                 }
                 if (length(grep('\\.UD$', cmps))) {
 
-                    out[,4] <- KnetReader2(cmps[grep('\\.UD$', cmps)])$data
+                    out[,4] <- KnetReader22(cmps[grep('\\.UD$', cmps)])$data
                 }
 
-                write_csv(out, paste0(exdir, '/', ss[1], '.csv'), row.names = FALSE)
+                # write_csv(out, paste0(exdir, '/', ss[1], '.csv'))
+                write_csv(as.data.frame(out), paste0(exdir, '/', ss[1], '.csv'))
             }
 
             # kik
@@ -179,30 +180,31 @@ ASCIItocsv2 <- function (flist, exdir, unified = TRUE) {
 
                 if (length(grep('\\.NS1$', cmps))) {
 
-                    out[,2] <- KnetReader2(cmps[grep('\\.NS1$', cmps)])$data
+                    out[,2] <- KnetReader22(cmps[grep('\\.NS1$', cmps)])$data
                 }
                 if (length(grep('\\.NS2$', cmps))) {
 
-                    out[,3] <- KnetReader2(cmps[grep('\\.NS2$', cmps)])$data
+                    out[,3] <- KnetReader22(cmps[grep('\\.NS2$', cmps)])$data
                 }
                 if (length(grep('\\.EW1$', cmps))) {
 
-                    out[,4] <- KnetReader2(cmps[grep('\\.EW1$', cmps)])$data
+                    out[,4] <- KnetReader22(cmps[grep('\\.EW1$', cmps)])$data
                 }
                 if (length(grep('\\.EW2$', cmps))) {
 
-                    out[,5] <- KnetReader2(cmps[grep('\\.EW2$', cmps)])$data
+                    out[,5] <- KnetReader22(cmps[grep('\\.EW2$', cmps)])$data
                 }
                 if (length(grep('\\.UD1$', cmps))) {
 
-                    out[,6] <- KnetReader2(cmps[grep('\\.UD1$', cmps)])$data
+                    out[,6] <- KnetReader22(cmps[grep('\\.UD1$', cmps)])$data
                 }
                 if (length(grep('\\.UD2$', cmps))) {
 
-                    out[,7] <- KnetReader2(cmps[grep('\\.UD2$', cmps)])$data
+                    out[,7] <- KnetReader22(cmps[grep('\\.UD2$', cmps)])$data
                 }
 
-                write_csv(out, paste0(exdir, '/', ss[1], '.csv'), row.names = FALSE)
+                # write_csv(out, paste0(exdir, '/', ss[1], '.csv'))
+                write_csv(as.data.frame(out), paste0(exdir, '/', ss[1], '.csv'))
             }
         }
 
@@ -217,7 +219,7 @@ ASCIItocsv2 <- function (flist, exdir, unified = TRUE) {
             outname <- paste0(exdir,'/',ss[1],'_',ss[2],'.csv')
 
             # output to csv
-            write_csv(x = KR2$data, file = outname, row.names = FALSE)
+            write_csv(x = KR2$data, file = outname)
         }
     }
 }
