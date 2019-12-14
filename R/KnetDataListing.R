@@ -33,7 +33,7 @@ KnetDataListing <- function (flist) {
     for (i in 1:N_files) {
 
         suppressWarnings(
-            prps <- fname %>%
+            prps <- flist[i] %>%
                 read_fwf(n_max = 16, fwf_widths(c(18, 100)), cols(col_character(), col_character())) %>%
                 as.data.frame()
         )
