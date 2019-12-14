@@ -1,7 +1,7 @@
 Package: KnetReader2
 Type: Package
 Title: Manipulating K-NET/KiK-net ASCII format files
-Version: 0.1.1
+Version: 0.2.0
 Author: Taro YAOYAMA, Suguru IMAZEKI
 Maintainer: Taro YAOYAMA <yaoyama@load.arch.t.u-tokyo.ac.jp>
 Description: Manipulating K-NET/KiK-net ASCII format files.
