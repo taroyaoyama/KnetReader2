@@ -3,8 +3,6 @@
 #'
 #' @param tarfile compressed .tar.gz folder
 #' @param exdir directory for output
-#' @example
-#'   extractASCII('FKS0161912041327.EW', exdir = 'C:/data')
 #' @export
 
 extractASCII <- function (tarfile, exdir) {

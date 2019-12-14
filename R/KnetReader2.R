@@ -3,7 +3,6 @@
 #'
 #' @importFrom geosphere distGeo
 #' @param fname filename (or pathname) of K-NET/KiK-net ASCII format file
-#' @example KnetReader2('FKS0161912041327.EW')
 #' @export
 
 KnetReader2 <- function (fname) {
