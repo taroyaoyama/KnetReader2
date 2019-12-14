@@ -3,6 +3,7 @@
 #'
 #' @importFrom geosphere distGeo
 #' @importFrom readr read_fwf
+#' @importFrom dplyr %>%
 #' @param fname filename (or pathname) of K-NET/KiK-net ASCII format file
 #' @export
 
@@ -58,14 +59,21 @@ KnetReader2 <- function (fname) {
 
 KnetReader22 <- function (fname) {
 
-    fname <- 'C:/data/_asc/20090811050700/AIC0010908110507.EW'
+    # properties
+    suppressWarnings(
+        prps <- fname %>%
+            read_fwf(n_max = 16, fwf_widths(c(18, 100)), cols(col_character(), col_character())) %>%
+            as.data.frame()
+    )
 
-    # read properties
-    prps <- fname %>% read_fwf(fwf_widths(c(18, 100)), n_max = 16, cols(X1 = col_character(), X2 = col_character()))
-
-    # read ASCII data
-    prps <- as.data.frame(read_fwf(file = fname, n_max = 16, fwf_widths(c(18, 100))))
-    dats <- as.data.frame(read_fwf(file = fname, skip = 17, fwf_widths(c(8, 9, 9, 9, 9, 9, 9, 9))))
+    # data
+    suppressWarnings(
+        dats <- fname %>%
+            read_fwf(skip = 17, fwf_widths(c(8, 9, 9, 9, 9, 9, 9, 9)),
+                     cols(col_integer(), col_integer(), col_integer(), col_integer(),
+                          col_integer(), col_integer(), col_integer(), col_integer())) %>%
+            as.data.frame()
+    )
 
     # get scale factor
     prp14 <- as.character(prps[14, 2])
