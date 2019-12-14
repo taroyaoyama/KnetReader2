@@ -32,7 +32,11 @@ KnetDataListing <- function (flist) {
     # read
     for (i in 1:N_files) {
 
-        prps <- read.fwf(file = flist[i], n = 16, widths = c(18, 100))
+        suppressWarnings(
+            prps <- fname %>%
+                read_fwf(n_max = 16, fwf_widths(c(18, 100)), cols(col_character(), col_character())) %>%
+                as.data.frame()
+        )
 
         SampFreq <- as.integer(strsplit(as.character(prps[11, 2]), 'Hz')[[1]])
 
