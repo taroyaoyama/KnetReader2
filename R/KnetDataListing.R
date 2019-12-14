@@ -2,6 +2,8 @@
 #' Listing the properties of K-NET/KiK-net ASCII format files
 #'
 #' @importFrom geosphere distGeo
+#' @importFrom dplyr %>%
+#' @importFrom readr read_fwf
 #' @param flist list of pathnames of K-NET/KiK-net ASCII format file
 #' @export
 
