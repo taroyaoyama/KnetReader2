@@ -43,7 +43,7 @@ ASCIItocsv <- function (flist, exdir, unified = TRUE) {
                 out <- array(NA, dim = c(dlen, 4))
                 colnames(out) <- c('Time', 'NS', 'EW', 'UD')
 
-                out[,1] <- 1:dlen/prps$SamplingFreq
+                out[,1] <- 1:dlen/prps$SamplingFreq[1]
 
                 if (length(grep('\\.NS$', cmps))) {
 
@@ -67,7 +67,7 @@ ASCIItocsv <- function (flist, exdir, unified = TRUE) {
                 out <- array(NA, dim = c(dlen, 7))
                 colnames(out) <- c('Time', 'NS1', 'NS2', 'EW1', 'EW2', 'UD1', 'UD2')
 
-                out[,1] <- 1:dlen/prps$SamplingFreq
+                out[,1] <- 1:dlen/prps$SamplingFreq[1]
 
                 if (length(grep('\\.NS1$', cmps))) {
 
@@ -151,7 +151,7 @@ ASCIItocsv2 <- function (flist, exdir, unified = TRUE) {
                 out <- array(NA, dim = c(dlen, 4))
                 colnames(out) <- c('Time', 'NS', 'EW', 'UD')
 
-                out[,1] <- 1:dlen/prps$SamplingFreq
+                out[,1] <- 1:dlen/prps$SamplingFreq[1]
 
                 if (length(grep('\\.NS$', cmps))) {
 
@@ -175,7 +175,7 @@ ASCIItocsv2 <- function (flist, exdir, unified = TRUE) {
                 out <- array(NA, dim = c(dlen, 7))
                 colnames(out) <- c('Time', 'NS1', 'NS2', 'EW1', 'EW2', 'UD1', 'UD2')
 
-                out[,1] <- 1:dlen/prps$SamplingFreq
+                out[,1] <- 1:dlen/prps$SamplingFreq[1]
 
                 if (length(grep('\\.NS1$', cmps))) {
 
